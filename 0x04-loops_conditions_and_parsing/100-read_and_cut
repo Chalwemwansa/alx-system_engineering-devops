@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#script that prints info on etc/passwd file
+
+fil="/etc/passwd"
+
+while IFS= read -r value; do
+	first=$(echo "$value" | cut -d ':' -f 1)
+	second=$(echo "$value" | cut -d ':' -f 3)
+	third=$(echo "$value" | cut -d ':' -f 6)
+	echo "$first:$second:$third"
+done < $fil

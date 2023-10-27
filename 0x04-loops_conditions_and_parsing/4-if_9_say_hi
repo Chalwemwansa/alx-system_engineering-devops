@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# use of the while loop and if statement
+
+i=0
+
+while [ "$i" -lt 10 ]; do
+	if [ "$i" -eq 8 ]; then
+		echo -e "Best School\nHi"
+		i=$((i + 1))
+		continue
+	fi
+	echo "Best School"
+	i=$((i + 1))
+done

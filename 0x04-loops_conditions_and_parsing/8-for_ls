@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#bash script that prints the contents of the corking directory
+
+content=$(ls)
+
+for value in $content; do
+	echo "$value" | cut -d '-' -f 2
+done

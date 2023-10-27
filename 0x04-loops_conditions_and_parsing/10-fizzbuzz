@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#prints a string according to the number
+
+for i in $(seq 1 100); do
+	fb=$((i % 3 == 0 && i % 5 == 0))
+	f=$((i % 3 == 0))
+	b=$((i % 5 == 0))
+
+	if [ "$fb" -eq 1 ]; then
+		echo "FizzBuzz"
+	elif [ "$f" -eq 1 ]; then
+		echo "Fizz"
+	elif [ "$b" -eq 1 ]; then
+		echo "Buzz"
+	else
+		echo "$i"
+	fi
+done

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#writes a story based on the etc/passwd ddirectory
+
+pas="/etc/passwd"
+
+while IFS= read -r value; do
+	name=$(echo "$value" | cut -d ':' -f 1)
+	g_id=$(echo "$value" | cut -d ':' -f 4)
+	h_dir=$(echo "$value" | cut -d ':' -f 6)
+	com_shell=$(echo "$value" | cut -d ':' -f 7)
+	u_id=$(echo "$value" | cut -d ':' -f 3)
+	paswd=$(echo "$value" | cut -d ':' -f 2)
+	user_info=$(echo "$value" | cut -d ':' -f 5)
+	echo "The user $name is part of the $g_id gang, lives in $h_dir and rides $com_shell. $u_id's place is protected by the passcode $paswd, more info about the user here: $user_info"
+
+done < "$pas"

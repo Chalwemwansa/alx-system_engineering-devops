@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#iterates from 1 up to 20 and prints some string for
+#some numbers
+
+i=1
+
+while [ "$i" -le 20 ]; do
+	case $i in
+		4)
+			echo -e "$i\nbad luck from China"
+			;;
+		9)
+			echo -e "$i\nbad luck from Japan"
+			;;
+		17)
+			echo -e "$i\nbad luck from Italy"
+			;;
+		*)
+			echo "$i"
+			;;
+	esac
+	i=$((i + 1))
+done
