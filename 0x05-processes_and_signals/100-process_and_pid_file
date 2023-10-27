@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#prints things depending on the signal received
+
+clean () {
+	rm "/var/run/myscript.pid"
+	exit 0
+}
+
+trap 'echo "I hate the kill command"; clean' SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap clean SIGQUIT
+
+fil="/var/run/myscript.pid"
+
+touch "$fil"
+echo "$$" > "$fil"
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
