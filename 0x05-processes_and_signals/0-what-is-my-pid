@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#prints the running process's id
+
+pro_id="$$"
+echo "$pro_id"

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ "$#" -gt 0 ]; then
+	for arg in "$@"; do
+		touch "$arg"
+		chmod u+x "$arg"
+		echo '#!/usr/bin/env bash' > "$arg"
+	done
+fi

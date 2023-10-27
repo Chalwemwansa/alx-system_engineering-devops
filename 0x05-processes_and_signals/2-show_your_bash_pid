@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#lists info on the running processes in kernel
+# shellcheck disable=SC2009
+
+ps -A xuf | grep bash

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#prints string till interupted
+
+display="To infinity and beyond"
+
+while true; do
+	echo "$display"
+	sleep 2
+done

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#lists info on the running processes in kernel
+
+ps -A xuf
