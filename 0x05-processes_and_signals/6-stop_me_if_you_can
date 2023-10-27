@@ -6,5 +6,5 @@ mpid=$(pgrep -f "bash ./4-to_infinity_and_beyond")
 if [ -z "$mpid" ]; then
 	exit 0
 else
-	pkill -KILL "$mpid"
+	pkill -TERM "$mpid"
 fi
