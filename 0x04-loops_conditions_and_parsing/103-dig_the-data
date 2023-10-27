@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#parsing apache logs file
+
+my_file="apache-access.log"
+
+awk '{ip[$1]++; http[$9]++; print ip[$1], $1, $9}' apache-access.log
