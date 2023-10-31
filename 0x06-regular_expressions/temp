@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+#file contains a regular expression that matches School in string
+
+regex = /School/
+
+if ARGV.length == 1
+  string = ARGV[0]
+  matches = string.scan(regex)
+  count = matches.length
+
+  if count > 0
+    matches.each do |match|
+      print "#{match}"
+    end
+  end
+  print "\n"
+end
