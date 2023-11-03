@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 #script changes the ip addresses of the localhost and facebook.com addresses
 
-file="/etc/hosts"
-fip="8.8.8.8"
-lip="127.0.0.2"
+file='/etc/hosts'
+fip='8.8.8.8'
+lip='127.0.0.2'
+li6i='::1'
+li6p='::2'
 
 if grep -q "facebook.com" "$file"; then
 	fb=$(str1=$(grep -m 1 "facebook.com" "$file"); echo "$str1" | cut -f1)
@@ -14,6 +16,7 @@ fi
 if grep -q "localhost" "$file"; then
 	localhost=$(str=$(grep -m 1 "localhost" "$file"); echo "$str" | cut -f1)
 	sed -i "s/$localhost/$lip/" "$file"
+	sed -i "s/$li6i/$li6p/" "$file"
 else
 	echo -e "$lip\tlocalhost" >> "$file"
 fi
