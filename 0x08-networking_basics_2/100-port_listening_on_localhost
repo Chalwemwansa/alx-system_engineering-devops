@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#script initiates a server that starts listening on port 98
 
 while true; do
 	nc -4 -l -p 98
