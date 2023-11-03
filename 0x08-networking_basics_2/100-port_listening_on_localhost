@@ -2,5 +2,5 @@
 #script initiates a server that starts listening on port 98
 
 while true; do
-	nc -4 -l -p 98 localhost
+	nc -l -p 98 -4 '127.0.0.1'
 done
