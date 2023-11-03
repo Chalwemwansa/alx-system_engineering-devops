@@ -19,4 +19,5 @@ if grep -q "localhost" "$file"; then
 	sed -i "s/$li6i/$li6p/" "$file"
 else
 	echo -e "$lip\tlocalhost" >> "$file"
+	sed -i "s/$li6i/$li6p/" "$file"
 fi
