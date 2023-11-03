@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#script prints the available ip addresses on the network
+
+ifconfig | grep "inet" | while IFS= read -r line; do
+	str=$(echo "$line" | awk '/inet/ {print $1}')
+	if [ "$str" = "inet" ]; then
+		echo "$line" | awk '/inet/ {print $2}'
+	fi
+done

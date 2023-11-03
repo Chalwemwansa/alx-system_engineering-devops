@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+while true; do
+	nc -4 -l -p 98
+done
