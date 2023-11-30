@@ -1,0 +1,11 @@
+https://imgur.com/gallery/pV8M4mY
+
+	the firewalls are added for protection of my servers from unauthorised access or malicious attacks from the internet, communication is now through HTTPS for data privacy and monitors have been added for efficiency as the servers or ports that will be in need of fixing will be fixed accordingly
+	as HTTPS uses encryption, the traffic sent through the system will be encrypted hence can't be modified or stolen by malicious parties
+	monitoring ensures that the web applications are running smoothly, securely and efficiently
+	the system uses LOGGING; it collects data from the system or the application itself by recording the events, actions or errors that occur during the operation
+	the monitoring tool NewRelic is the one the infrastructure is using to be able to monitor the QPS(querries per second)
+
+	terminating SSL at the load balancer level is an issue as it can expose the traffic between the load balancer and web server to malicious parties it can also prevent the web server from accessing and veifying the SSL imformation of the clients
+	all the traffic requiring write operations will be directed to one server(the primary MYSQL server) which may lead to it being a bottleneck to the infrastructure
+	the redundancy of the system may lead to an increase in complexity and cost of the infrastructure. it may also increase the surface area for attackers due to an increase in the number of ports and services

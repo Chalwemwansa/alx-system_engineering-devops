@@ -1,0 +1,14 @@
+https://imgur.com/gallery/waki3B9
+
+	a server is a computer that provides services or resources to other computers over a network, it is generally stored in a data center.
+	a server can be virtual or physical, a virtual server is a multitenant software environment that emulates the functions of a physical server while sharing the resources of a physical host machine with other virtual servers. a physical server is one that has it's own hardware components and runs it's own operating system.
+	a domain name makes it easy for users or clients to access a website as names are easy to remember as compared to numbers i.e www.example.com is easy to remember as compared to an IP address like 127.66.75.5, the domain name server converts the names into IP addresses which are then used by the computers
+	the given name www.foobar.com in the diagram is a type A domain name as it directly give the IP address of the server
+	a web server is a server that serves web pages to clients
+	the application server provides a platform that allows for hosting and running applications that require dynamic processing, data storage and security
+	a database like the one in the diagram is used to store and organize data that can be used for various purposes, such as bussiness operations, analysis, decision making and communication
+	a server communicates over a network
+		some of the issues about the system are listed below;
+	the system suffers from single point of failure as if the one server dies it leads to the whole system being down
+	during system maintenance the server will be down as there is only one server
+	the server will lag given too much traffic hence leading to poor perfomance

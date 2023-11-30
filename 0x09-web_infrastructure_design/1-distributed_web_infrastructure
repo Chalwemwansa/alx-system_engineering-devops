@@ -1,0 +1,10 @@
+https://imgur.com/gallery/J7bkFUZ
+
+	the additional server with all the other servers in it is redundancy and will help the system to avoid single point of failure and the other issues that were in the previous architecture hence leading to an efficient system
+	the load balancer helps distribute the traffic to the servers evenly between the two
+	my servers load balancer uses Round-Robin algorthm which includes a circular linked list and walks around the list sending one request to each machine
+	my load balancer uses the active-active setup type for perfomance, scalability and availability
+	the primary node in the intrastructure accepts read and write operations where as the reprica accepts read only operations the primary node writes data to the database then synchronously or asynchronously sends the data to the other nodes
+	the servers have no firewall as such are not protected from un authorised access of the servers and malicious attacks from the internet
+	communication is not through HTTPS hence not protecting the data from interception, modification and stealing of the data by others
+	there is no monitoring making it difficult to know the server or ports of the system that need attention or fixing
