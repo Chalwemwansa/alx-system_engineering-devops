@@ -6,3 +6,10 @@ exec { 'flask':
   path    => ['/usr/bin', '/bin']
 }
 
+#install the needed Werkzeug==2.1.1 for compatibility
+exec { 'Werkzeug':
+  command => 'pip3 install --upgrade Werkzeug==2.1.1',
+  path    => ['/usr/bin', '/bin']
+}
+
+
