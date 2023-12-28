@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # script that creates a ssh key pair and saves it as school in current directory
-
-echo -e "school\nbetty\nbetty\n" | ssh-keygen -b 4096
+if [ -f "./school" ]; then
+	echo -e "./school\ny\nbetty\nbetty\n" | ssh-keygen -b 4096
+else
+	echo -e "./school\nbetty\nbetty\n" | ssh-keygen -b 4096
+fi
