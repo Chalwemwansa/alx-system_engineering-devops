@@ -3,5 +3,6 @@
 if [ -f "./school" ]; then
 	echo -e "y\n" | ssh-keygen -p -b 4096 -f "./school" -P "" -N "betty"
 else
-	ssh-keygen -p -b 4096 -f "./school" -P "" -N "betty"
+	echo -e "./school\n\n\n" | ssh-keygen -b 4096
+	ssh-keygen -p -f "./school" -b 4096 -P "" -N "betty"
 fi
