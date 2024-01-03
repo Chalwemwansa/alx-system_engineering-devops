@@ -1,0 +1,4 @@
+apt -y update && apt -y install curl
+apt -y install nginx
+service nginx start
+sed -i.bak 's/^[^#]*location \/ {/\tlocation = \/ {\n\t\treturn 200 "Hello Holberton\\n";/g' /etc/nginx/sites-available/default
