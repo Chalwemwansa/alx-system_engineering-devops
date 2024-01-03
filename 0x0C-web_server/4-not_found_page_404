@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# script that configures a server for the error message
+
+sed -i 's/^[^#]*server {/server {\n\terror_page 404 \/err.html;\n\tlocation \/err.html {\n\t\tetag on;\n\t\treturn 404 "Ceci n'"'"'est pas une page\\n";\n\t}/g' /etc/nginx/sites-available/default
+
+service nginx restart
