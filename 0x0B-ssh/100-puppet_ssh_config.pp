@@ -11,12 +11,12 @@ file_line { 'Turn off passwd auth':
   ensure => present,
   path   => $ssh_path,
   line   => '    PasswordAuthentication No',
-  match  => '^#* *PasswordAuthentication *.*',
+  match  => '.*PasswordAuthentication *[yY]?[eE]?[sS]?',
 }
 
 file_line { 'Declare identity file':
   ensure => present,
   path   => $ssh_path,
   line   => '    IdentityFile ~/.ssh/school',
-  match  => '^[^#]*IdentityFile.*',
+  match  => '^[^#] *IdentityFile .*',
 }
