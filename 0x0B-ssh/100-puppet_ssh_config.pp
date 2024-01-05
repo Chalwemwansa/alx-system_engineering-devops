@@ -18,5 +18,5 @@ file_line { 'Declare identity file':
   ensure => present,
   path   => $ssh_path,
   line   => '    IdentityFile ~/.ssh/school',
-  match  => '^[^#] *IdentityFile .*',
+  match  => '^[^#] *IdentityFile (?!.*~/.ssh/school).*',
 }
