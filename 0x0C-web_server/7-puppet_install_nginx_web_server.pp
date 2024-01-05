@@ -14,6 +14,7 @@ $commands = ['apt -y update && apt -y install nginx',
   'service nginx restart']
 
 exec { 'nginx_configuration':
-  command => $commands.join(' && '),
+  command => $commands.join('; '),
   path    => ['/bin', '/usr/bin'],
+  timeout => 600,
 }
