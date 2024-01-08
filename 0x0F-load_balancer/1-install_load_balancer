@@ -4,8 +4,8 @@
 # replacement variables for haproxy configuration
 path_init='/etc/default/haproxy'
 path_conf='/etc/haproxy/haproxy.cfg'
-web_01_ip='3.84.255.85'
-web_02_ip='100.25.171.58'
+web_01_ip='34.198.248.145'
+web_02_ip='54.89.38.100'
 frontend_string="frontend web_front\n\tbind *:80\n\tmode http\n\tdefault_backend web_backend"
 backend_string="backend web_backend\n\tbalance roundrobin\n\tmode http\n\tserver web_01 $web_01_ip\n\tserver web_02 $web_02_ip"
 
