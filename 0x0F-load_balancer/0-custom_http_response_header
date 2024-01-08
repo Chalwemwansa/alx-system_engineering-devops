@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# this script configures a server by adding a custom header to the server
+path_to_nginx='/etc/nginx/sites-available/default'
+
+sed -i.bak "s/^[^#]*server {/server {\n\tadd_header X-Served-By $(hostname);/g" "$path_to_nginx"
+
+service nginx restart

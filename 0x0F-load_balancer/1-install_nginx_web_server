@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# script that configures a server for the nginx web server
+
+apt-get -y update && apt-get -y install nginx
+sed -i.bak 's/listen [0-9]\{1,\}/listen 80/g' /etc/nginx/sites-available/default
+sed -i 's/listen \[::\]:[0-9]\{1,\}/ listen \[::\]:80/g' /etc/nginx/sites-available/default
+sed -i 's/^[^\(#.*\)]location \/ {/\tlocation = \/ {\n\t\treturn 200 "Hello World!\\n";/g' /etc/nginx/sites-available/default
+service nginx restart
