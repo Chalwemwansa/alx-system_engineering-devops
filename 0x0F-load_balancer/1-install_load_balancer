@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # configures the haproxy server
 
-# replacement variables for haproxy configuration
+# Replacement variables for haproxy configuration
 path_init='/etc/default/haproxy'
 path_conf='/etc/haproxy/haproxy.cfg'
 web_01_ip='34.198.248.145'
@@ -9,15 +9,27 @@ web_02_ip='54.89.38.100'
 frontend_string="frontend web_front\n\tbind *:80\n\tmode http\n\tdefault_backend web_backend"
 backend_string="backend web_backend\n\tbalance roundrobin\n\tmode http\n\tserver web_01 $web_01_ip\n\tserver web_02 $web_02_ip"
 
-# haproxy installation
+# Update repositories
+apt-get update
+
+# Install haproxy
 apt-get -y install --no-install-recommends software-properties-common
 add-apt-repository -y ppa:vbernat/haproxy-2.0
 apt-get -y install haproxy=2.0.\*
 
-# haproxy configuration
-echo 'ENABLED=1' >> "$path_init"
-echo -e "$frontend_string" >> "$path_conf"
-echo -e "\n$backend_string" >> "$path_conf"
+# Check for existing configuration
+if ! grep -q "$frontend_string" "$path_conf"; then
+	  # Append to haproxy configuration
+	    echo -e "$frontend_string" >> "$path_conf"
+fi
 
-# restart haproxy
-service haproxy restart
+if ! grep -q "$backend_string" "$path_conf"; then
+	  echo -e "\n$backend_string" >> "$path_conf"
+fi
+
+# Restart haproxy
+if command -v systemctl &> /dev/null; then
+	  systemctl restart haproxy
+  else
+	    service haproxy restart
+fi
