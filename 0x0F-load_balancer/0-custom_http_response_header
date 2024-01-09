@@ -3,8 +3,13 @@
 path_to_nginx='/etc/nginx/sites-available/default'
 is_header=`grep 'add_header X-Served-By' "$path_to_nginx"`
 
-sed -i.bak 's/127\.0\.0\.1 *localhost/127\.0\.0\.1 localhost 03-web-01/g' '/etc/hosts'
-hostnamectl set-hostname 03-web-01
+apt-get -y update && apt-get -y install nginx
+sed -i.bak 's/listen [0-9]\{1,\}/listen 80/g' /etc/nginx/sites-available/default
+sed -i 's/listen \[::\]:[0-9]\{1,\}/ listen \[::\]:80/g' /etc/nginx/sites-available/default
+sed -i 's/^[^\(#.*\)]location \/ {/\tlocation = \/ {\n\t\treturn 200 "Hello World!\\n";/g' /etc/nginx/sites-available/default
+
+# sed -i.bak 's/127\.0\.0\.1 *localhost/127\.0\.0\.1 localhost 03-web-01/g' '/etc/hosts'
+# hostnamectl set-hostname 03-web-01
 
 if [ -n "$is_header" ]; then
 	echo "header X-Served-By already exists"
