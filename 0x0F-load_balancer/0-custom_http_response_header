@@ -3,6 +3,9 @@
 path_to_nginx='/etc/nginx/sites-available/default'
 is_header=`grep 'add_header X-Served-By' "$path_to_nginx"`
 
+sed -i.bak 's/127\.0\.0\.1 *localhost/127\.0\.0\.1 localhost 03-web-01/g' '/etc/hosts'
+hostnamectl set-hostname 03-web-01
+
 if [ -n "$is_header" ]; then
 	echo "header X-Served-By already exists"
 else
