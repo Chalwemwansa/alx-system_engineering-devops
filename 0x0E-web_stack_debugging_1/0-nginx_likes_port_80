@@ -3,7 +3,12 @@
 
 str="server {\n\tlocalhost 80 default_server;\n\tlocalhost [::]:80 default_server;\n\n\troot /var/www/html;\n\tserver_name _;\n\tlocation / {\n\t\tindex index.nginx_debian.html;\n\t\ttry_files \$uri \$uri/ = 404;\n\t}\n}"
 
-touch /etc/nginx/sites-available/default
+if [ ! -d '/etc/nginx/sites-available' ]; then
+	mkdir /etc/nginx/sites-available
+fi
+if [ ! -f '/etc/nginx/sites-available/default' ]; then
+	touch /etc/nginx/sites-available/default
+fi
 
 echo -e "$str" > /etc/nginx/sites-available/default
 
