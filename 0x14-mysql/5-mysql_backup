@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# this script creates a dump file from the mysql serverfor the tyrell database
+
+PASWD="$1"
+DUMP_FILE_NAME='backup.sql'
+COMPRESSED_FILE_NAME=$(date "+%d-%m-%Y.tar.gz") # based on the day +%d, mongth +%m and year +%Y
+
+# return if no argument has been passed
+if [ ! "$PASWD" ]; then
+	exit
+fi
+
+# use mysqldump to create the dump file
+mysqldump -u root -p"$PASWD" --all-databases --add-drop-database > "$DUMP_FILE_NAME"
+
+#create a tar.gz file from the DUMP_FILE_NAME file
+tar -czf "$COMPRESSED_FILE_NAME" "$DUMP_FILE_NAME"
