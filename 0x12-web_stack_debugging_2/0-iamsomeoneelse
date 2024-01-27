@@ -2,7 +2,7 @@
 # commands that make the whoami command run as the user passed as an argument
 
 if [ "$1" ]; then
-	su -c whoami "$1"
+	sudo -iu "$1" whoami
 else
 	whoami
 fi
