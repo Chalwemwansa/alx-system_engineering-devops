@@ -19,7 +19,7 @@ placeholder.typicode.com/users/{id}/todos')
             num_of_done_tasks += 1
 
     print(f'Employee {name} is done with\
-tasks({num_of_done_tasks}/{num_of_tasks}):')
+ tasks({num_of_done_tasks}/{num_of_tasks}):')
     for task in tasks_res.json():
         if task.get('completed') is True:
             print(f'\t {task.get("title")}')
