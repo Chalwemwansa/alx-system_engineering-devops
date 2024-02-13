@@ -12,18 +12,16 @@ def recurse(subreddit, hot_list=[], after=None):
     if len(hot_list) == 0:
         # query the api without the after argument
         response = requests.get('https://www.reddit.com/r/{}/hot.json\
-?limit=20'.format(subreddit), headers=header)
+?limit=1'.format(subreddit), headers=header)
     else:
         # query with the after part
         response = requests.get('https://www.reddit.com/r/{}/hot.json\
-?limit=20&after={}'.format(subreddit, after), headers=header)
-    res_obj = response.json().get('data').get('children')
+?limit=1&after={}'.format(subreddit, after), headers=header)
+    child = response.json().get('data').get('children')[0]
     after = response.json().get('data').get('after')
-    for child in res_obj:
-        title = child.get('data').get('title')
-        hot_list.append(title)
+    title = child.get('data').get('title')
+    hot_list.append(title)
     if after is None:
         return hot_list
     return recurse(subreddit, hot_list, after)
-
 print(recurse('programming'))

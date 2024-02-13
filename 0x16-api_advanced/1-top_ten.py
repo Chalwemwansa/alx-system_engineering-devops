@@ -19,5 +19,5 @@ hot.json?limit=10'.format(subreddit),
     list = response.json().get('data').get('children')
     for child in list:
         # print the title of every child in the list excluding stickies
-        if not child.get('data').get('stickied'):
-            print(child.get('data').get('title'))
+        # if not child.get('data').get('stickied'):
+        print(child.get('data').get('title'))
