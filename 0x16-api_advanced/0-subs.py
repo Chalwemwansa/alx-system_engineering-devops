@@ -14,4 +14,7 @@ about.json'.format(subreddit),
                             headers=header)
     if not response.status_code == 200:
         return 0
-    return response.json().get('data').get('subscribers')
+    subscribers = response.json().get('data').get('subscribers')
+    if subscribers is not None:
+        return response.json().get('data').get('subscribers')
+    return 0
