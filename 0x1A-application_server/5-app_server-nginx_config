@@ -5,7 +5,7 @@ server {
 	listen [::]:80;
 	server_name localhost web-01.chalwemwansa.tech;
 
-	location / {
+	location /airbnb-onepage/ {
 		proxy_pass http://0.0.0.0:5000;
 	}
 
@@ -18,8 +18,7 @@ server {
 		proxy_pass http://0.0.0.0:5002;
 	}
 
-	location /web_dynamic/ {
-		rewrite ^/web_dynamic/(.*)$ /$1 break;
+	location / {
 		proxy_pass http://0.0.0.0:5003;
 	}
 
