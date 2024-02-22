@@ -5,7 +5,7 @@ server {
 	listen [::]:80;
 	server_name localhost web-01.chalwemwansa.tech;
 
-	location /airbnb-onepage/ {
+	location / {
 		proxy_pass http://0.0.0.0:5000;
 	}
 
@@ -18,12 +18,12 @@ server {
 		proxy_pass http://0.0.0.0:5002;
 	}
 
-	location  {
-		rewrite /(.*)$ /2-hbnb break;
+	location = / {
+		rewrite / /2-hbnb break;
 		proxy_pass http://0.0.0.0:5003;
 	}
 
-	location /web_dynamic/static {
+	location /static {
 		alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static;
 	}
 }
