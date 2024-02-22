@@ -1,0 +1,29 @@
+# this file contains a server block that is used to serve dynamic content
+# it uses nginx and gunicorn with flask as the WSGI
+server {
+	listen 80;
+	listen [::]:80;
+	server_name localhost web-01.chalwemwansa.tech;
+
+	location / {
+		proxy_pass http://0.0.0.0:5000;
+	}
+
+	location /airbnb-dynamic/ {
+		rewrite ^/airbnb-dynamic/(.*)$ /$1 break;
+		proxy_pass http://0.0.0.0:5001;
+	}
+
+	location /api/ {
+		proxy_pass http://0.0.0.0:5002;
+	}
+
+	location /web_dynamic/ {
+		rewrite ^/web_dynamic/(.*)$ /$1 break;
+		proxy_pass http://0.0.0.0:5003;
+	}
+
+	location /static {
+		alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static;
+	}
+}
