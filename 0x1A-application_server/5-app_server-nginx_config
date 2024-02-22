@@ -18,7 +18,7 @@ server {
 		proxy_pass http://0.0.0.0:5002;
 	}
 
-	location / {
+	location  {
 		rewrite /(.*)$ /2-hbnb break;
 		proxy_pass http://0.0.0.0:5003;
 	}
